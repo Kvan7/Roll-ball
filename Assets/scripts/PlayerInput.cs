@@ -2,18 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using Unity.VisualScripting;
 
 public class PlayerInput : MonoBehaviour
 {
+	public TMP_Text countText;
+	public TMP_Text winText;
 	private Rigidbody rb;
 	// Get speed from unity
 	public float speed;
+	private int count;
 	private float movementX;
 	private float movementY;
 	// Start is called before the first frame update
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+		count = 0;
+		SetCountText();
+		winText.gameObject.SetActive(false);
 	}
 	void OnMove(InputValue value)
 	{
@@ -29,5 +37,24 @@ public class PlayerInput : MonoBehaviour
 	{
 		Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 		rb.AddForce(movement * speed);
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("Pickup"))
+		{
+			other.gameObject.SetActive(false);
+			count++;
+			SetCountText();
+		}
+	}
+
+	private void SetCountText()
+	{
+		countText.text = "Count: " + count.ToString();
+		if (count >= 12)
+		{
+			winText.gameObject.SetActive(true);
+		}
 	}
 }
