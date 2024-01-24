@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
-using Unity.VisualScripting;
-using TMPro.EditorUtilities;
 
 public class PlayerInput : MonoBehaviour
 {
