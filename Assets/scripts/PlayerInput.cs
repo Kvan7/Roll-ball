@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using Unity.VisualScripting;
+using TMPro.EditorUtilities;
 
 public class PlayerInput : MonoBehaviour
 {
 	public TMP_Text countText;
-	public TMP_Text winText;
+	public MenuController menuController;
 	private Rigidbody rb;
 	// Get speed from unity
 	public float speed;
@@ -21,7 +22,7 @@ public class PlayerInput : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 		count = 0;
 		SetCountText();
-		winText.gameObject.SetActive(false);
+		// menuController.SetActive(false);
 	}
 	void OnMove(InputValue value)
 	{
@@ -54,7 +55,7 @@ public class PlayerInput : MonoBehaviour
 		countText.text = "Count: " + count.ToString();
 		if (count >= 12)
 		{
-			winText.gameObject.SetActive(true);
+			menuController.WinGame();
 		}
 	}
 }
