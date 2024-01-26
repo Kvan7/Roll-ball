@@ -11,4 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/minigame.unity
     guid: 9178e016c8cb8844dbbc30e4f11fabf3
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 735b077821cbc4642a5db2ac4f0ff5c8,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d9f24f7ad4c2f2a4b8a2eb9786d17e1f,
+      type: 2}
