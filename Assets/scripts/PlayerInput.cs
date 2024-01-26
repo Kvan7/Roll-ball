@@ -51,7 +51,7 @@ public class PlayerInput : MonoBehaviour
 	private void SetCountText()
 	{
 		countText.text = "Count: " + count.ToString();
-		if (count >= 13)
+		if (count >= 5)
 		{
 			menuController.WinGame();
 		}
